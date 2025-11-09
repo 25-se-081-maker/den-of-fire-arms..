@@ -1,0 +1,20 @@
+# create folders
+mkdir -p assets/images/guns
+mkdir -p assets/images/pellets
+
+# download 60 gun placeholders (900x600)
+for i in $(seq -w 1 60); do
+    curl -s "https://picsum.photos/900/600?random=$RANDOM" -o "assets/images/guns/gun-$i.jpg"
+    echo "Downloaded gun-$i.jpg"
+done
+
+# download pellet thumbnails (300x200) — common variants
+curl -s "https://picsum.photos/300/200?random=101" -o assets/images/pellets/pellet-177.jpg
+curl -s "https://picsum.photos/300/200?random=102" -o assets/images/pellets/pellet-22.jpg
+curl -s "https://picsum.photos/300/200?random=103" -o assets/images/pellets/pellet-25.jpg
+curl -s "https://picsum.photos/300/200?random=104" -o assets/images/pellets/pellet-30.jpg
+curl -s "https://picsum.photos/300/200?random=105" -o assets/images/pellets/pellet-bb.jpg
+echo "Pellet thumbnails downloaded."
+
+# quick local check message
+echo "All placeholder images downloaded to assets/images/guns and assets/images/pellets"
